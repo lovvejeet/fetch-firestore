@@ -77,18 +77,18 @@
       });
 
 const firestore = getFirestore(app);
-      const collectionName = "users";
-      firestore
-        .collection(collectionName)
-        .get()
-        .then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            console.log(`Document ID: ${doc.id}, Data:`, doc.data());
-          });
-        })
-        .catch((error) => {
-          console.error("Error getting documents: ", error);
-        });
+    const collectionName = "users";
+const usersCollection = collection(firestore, collectionName);
+
+getDocs(usersCollection)
+  .then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      console.log(`Document ID: ${doc.id}, Data:`, doc.data());
+    });
+  })
+  .catch((error) => {
+    console.error("Error getting documents: ", error);
+  });
     </script>
   </body>
 </html>
