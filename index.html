@@ -78,8 +78,8 @@
         }
       });
 
-      const firestore = app.firestore(); // Use this line to get the Firestore instance
-
+const app = initializeApp(firebaseConfig);
+const firestore = getFirestore(app);
       const collectionName = "users";
       firestore
         .collection(collectionName)
